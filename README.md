@@ -1,5 +1,5 @@
-# ifood-data-case
-Desafio técnico de análise e engenharia de dados - iFood (NYC Taxi)
+# taxi-data-case
+Desafio técnico de análise e engenharia de dados - (NYC Taxi)
 </br>
 ## 📌 Visão Geral
 Este projeto processa dados de táxis & Limusine de Nova York, transformando dados brutos em insights através de um pipeline com três camadas: Bronze (raw), Silver (processada) e Gold (refinada). A parte final é a análise dos dados refinados.</br>
