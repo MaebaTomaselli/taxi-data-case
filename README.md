@@ -54,7 +54,17 @@ dbutils.widgets.text("end_date", "2023-01", "Data final (YYYY-MM)") </br>
 01_bronze_dataExtract → 02_silver_dataProcessing → 03_gold_dataAnalysis. </br>
 Observação: O notebook Silver deve ser executado duas vezes (uma para yellow e outra para green). </br>
 
+</br>
+
 ### Opção 2: Databricks Workflows (Recomendado)
+</br>
+Como sugestão de orquestração para este pipeline, recomenda-se o uso do Databricks Workflows, que permite agendar e automatizar a execução sequencial dos notebooks diretamente na plataforma (não disponível no Databricks Community Edition)
+Com ele, seria possível: </br>
+- Definir a ordem de execução dos notebooks (ingestão → bronze → silver → análise) </br>
+- Monitorar e reexecutar etapas em caso de falhas </br>
+- Configurar triggers por tempo ou eventos </br>
+- Centralizar logs e alertas dentro do ambiente do Databricks </br>
+
 </br>
 
 ## 📊 Saída Esperada
@@ -65,15 +75,17 @@ Gold: Tabelas analíticas em dbfs:/case_ifood_nyc/gold. </br>
 
 ## 📈 Análises
 ### Análise 1: Média do Valor Total (Yellow Taxis)
+- Apresenta o valor médio cobrado nas corridas pelos Yellow e Green Taxis por mês nos últimos 5 meses.
 <img width="286" alt="image" src="https://github.com/user-attachments/assets/c4f2f2f5-6e5e-46f0-98f6-4e4107d98ae0" />
 
 ### Análise 2: Média de Passageiros por Hora (Todos os Táxis - Maio)
+- Analisa o horário do dia com maior e menor atividade. Apresenta a quantidade média de passageiros e o total de viagens aceitas por horário do dia.
 ![image](https://github.com/user-attachments/assets/8ee52ef5-cb33-4bb1-96f0-403c6ebbfc41)
 
-#### Exra 1 - Gráfico de passageiro por hora
+#### Extra 1 - Gráfico de passageiro por hora
 ![image](https://github.com/user-attachments/assets/0883c86b-56a1-4fa0-b721-805a18109088)
 
-#### Exra 2 - Cálculo do Tempo Médio de Duração da Corrida
+#### Extra 2 - Cálculo do Tempo Médio de Duração da Corrida
 ![image](https://github.com/user-attachments/assets/4bb5c181-2453-4a51-91d3-d636d11f6818)
 
 </br>
@@ -82,4 +94,4 @@ Gold: Tabelas analíticas em dbfs:/case_ifood_nyc/gold. </br>
 - Criar dashboard no Power BI com os dados da camada Analysis
 - Montar um histórico completo dos dados;
 - Montar um script que baixe somente os arquivos novos/alterados e adicione aos dados consolidados.
-- Ambiente produtivo: tirar os prints
+- Ambiente produtivo: modificação do código com a retirada de validações e prints.
